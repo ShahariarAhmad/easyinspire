@@ -21,7 +21,6 @@
             background-position: center;
         }
 
-
         .group:hover .group-hover\:block {
             display: block;
             animation: fadeIn 0.3s ease-out;
@@ -102,14 +101,43 @@
         #hero-slick .slick-next::before {
             font-size: 40px;
         }
+
         #hero-slick .slick-prev {
-             left: -4%;
+            left: -4%;
         }
 
-       #hero-slick .slick-next {
-             right: -4%;
+        #hero-slick .slick-next {
+            right: -4%;
+        }
+
+        @media (max-width: 768px) {
+
+            #hero-slick .slick-prev,
+            #hero-slick .slick-next {
+                display: none !important;
+            }
         }
     </style>
+    <script>
+        module.exports = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                    animation: {
+                        'slide-down': 'slideDown 0.3s ease-out forwards',
+                    },
+                },
+            },
+            // ensure these classes are included if purging
+            safelist: ['animate-slide-down'],
+        };
+
+    </script>
     <!-- Slick CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
@@ -136,7 +164,7 @@
                         <span class="text-sm">+1 (555) 123-4567</span>
                     </div>
                 </div>
-                <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-4 hidden md:block">
                     <a href="#" class="text-sm hover:text-orange-500 transition-colors duration-300">Login |</a>
                     <a href="#" class="px-1 py-1"></a>
                     <a href="#"
@@ -165,36 +193,26 @@
                     <img src="https://easyinspire.eu/wp-content/uploads/2023/02/logo2.jpg" alt="">
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <div class="relative group">
+                    <div class="relative group z-50">
                         <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">Home</a>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg py-2 rounded-md">
-                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home Sub 1</a>
-                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home Sub 2</a>
-                        </div>
+                      
                     </div>
-                    <div class="relative group">
+                    <div class="relative group z-50">
                         <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">About</a>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg py-2 rounded-md">
-                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">About Sub 1</a>
-                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">About Sub 2</a>
-                        </div>
+                      
                     </div>
-                    <div class="relative group">
+                    <div class="relative group z-50">
                         <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">Services</a>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg py-2 rounded-md">
-                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Service Sub 1</a>
-                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Service Sub 2</a>
-                        </div>
+                       
                     </div>
-                    <div class="relative group">
+                    <div class="relative group z-50 w-[150px]">
                         <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">Contact</a>
                         <div class="absolute hidden group-hover:block bg-white shadow-lg py-2 rounded-md">
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Contact Sub 1</a>
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Contact Sub 2</a>
                         </div>
                     </div>
-                    <a href="#" class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">Book Appointment
-                        <i class="fa-solid fa-arrow-right mx-2"></i></a>
+                    <a href="#" class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">Get Quote</a>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-700">
@@ -202,6 +220,13 @@
                     </button>
                 </div>
             </div>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white shadow-md overflow-hidden transform transition-all duration-300">
+            <a href="#" class="block px-4 py-2 hover:bg-[#F97316]">Home</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#F97316]">About</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#F97316]">Services</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#F97316]">Contact</a>
         </div>
     </nav>
 
@@ -270,7 +295,7 @@
     <!-- Services Section -->
     <section class="py-16">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 h-[1000px]">
+            <div class="grid md:grid-cols-2 gap-12 h-[300px] md:h-[600px] lg:h-[800px]">
                 <div>
                     <img src="https://easyinspire.eu/wp-content/uploads/2020/07/about-1.jpg"
                         alt="Work, Visit & Study Visa" class="w-full rounded-lg shadow-lg">
@@ -294,7 +319,7 @@
 
 
                 </div>
-                <div>
+                <div class="mt-[-195px] md:mt-0">
                     <p class="text-[#777777] text-[12px] uppercase font-semibold">We understand the people 's needs</p>
                     <h1 class="text-5xl font-bold text-gray-800 mb-6">Work, Visit & Study Visa</h1>
                     <p class="text-[24px] text-[#555555] ">We deal professionally with work permits, visit visas, and
@@ -317,7 +342,7 @@
     </section>
 
     <!-- Service Cards -->
-    <section class="py-16">
+    <section class="py-16 mt-[800px] md:mt-0">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -351,8 +376,9 @@
     <!-- Contact CTA -->
     <section class="bg-[#E27A1F] text-white py-12 pb-22 mt-[-200px]">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-[48px] mb-4 pt-48">For more details contact us on email or WhatsApp</h2>
-            <p class="text-[24px] mb-6">info@easyinspire.eu +370 660 22174</p>
+            <h2 class="text-[30px] md:text-[36px] lg:text-[48px] mb-4 pt-48">For more details contact us on email or
+                WhatsApp</h2>
+            <p class="text-[20px] md:text-[24px] mb-6">info@easyinspire.eu +370 660 22174</p>
 
         </div>
     </section>
@@ -499,7 +525,7 @@
                     </div>
                 </div>
             </div>
-            <h3 class="py-24 text-center text-[26px]">FIND YOUR PROGRAMS &amp; SCHOOL <a
+            <h3 class="py-24 text-center text-[20px] md:text-[26px]">FIND YOUR PROGRAMS &amp; SCHOOL <a
                     href="https://www.applyboard.com/partners/1505191/intake-form" target="_blank" rel="nofollow"><span
                         class="text-orange-500 underline">PLEASE FILL THE ASSESSMENT FORM &amp; SUBMIT</span><i
                         class="fa-solid fa-arrow-right mx-2"></i></a></h3>
@@ -511,7 +537,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <p class="text-[12px] text-gray-600 font-semibold">CLIENTS TESTIMONIALS</p>
-                <h2 class="text-[48px] font-bold text-gray-800 my-4">What Customers
+                <h2 class="text-[32px] md:text-[48px] font-bold text-gray-800 my-4">What Customers
                     Saying About Easy Inspire MB.</h2>
 
             </div>
@@ -639,16 +665,17 @@
             <div>
                 <div>
                     <p class="uppercase text-[#777777]">We understand your business needs</p>
-                    <h2 class="text-[48px] font-bold text-gray-800 mb-6">Company Formation in the World</h2>
+                    <h2 class="text-[36px] md:text-[48px] font-bold text-gray-800 mb-6">Company Formation in the World
+                    </h2>
                     <p class="text-gray-600 mb-6">We provide comprehensive company formation services worldwide, helping
                         entrepreneurs and businesses establish their presence in various jurisdictions with favorable
                         business environments.</p>
                     <div class="space-y-8">
-                        <div class="grid grid-cols-12 items-center gap-3">
-                            <div class="col-span-1">
+                        <div class="grid grid-cols-12 items-center gap-2 md:gap-3">
+                            <div class="col-span-3 md:col-span-2 lg:col-span-1">
                                 <i class="fas fa-handshake text-[30px] bg-white p-4"></i>
                             </div>
-                            <div class="col-span-11">
+                            <div class="col-span-7 md:col-span-10 lg:col-span-11">
                                 <span class="text-gray-700 text-[26px]">United Kingdom</span><br>
                                 <p>
                                     Company formation services are available for Lithuania, Albania, Belarus &amp; the
@@ -657,11 +684,11 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-12 items-center gap-3">
-                            <div class="col-span-1">
+                        <div class="grid grid-cols-12 items-center gap-2 md:gap-3">
+                            <div class="col-span-3 md:col-span-2 lg:col-span-1">
                                 <i class="fas fa-handshake text-[30px] bg-white p-4"></i>
                             </div>
-                            <div class="col-span-11">
+                            <div class="col-span-7 md:col-span-10 lg:col-span-11">
                                 <span class="text-gray-700 text-[26px]">United Kingdom</span><br>
                                 <p>
                                     Company formation services are available for Lithuania, Albania, Belarus &amp; the
@@ -669,11 +696,11 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="grid grid-cols-12 items-center gap-3">
-                            <div class="col-span-1">
+                        <div class="grid grid-cols-12 items-center gap-2 md:gap-3">
+                            <div class="col-span-3 md:col-span-2 lg:col-span-1">
                                 <i class="fas fa-handshake text-[30px] bg-white p-4"></i>
                             </div>
-                            <div class="col-span-11">
+                            <div class="col-span-7 md:col-span-10 lg:col-span-11">
                                 <span class="text-gray-700 text-[26px]">United Kingdom</span><br>
                                 <p>
                                     Company formation services are available for Lithuania, Albania, Belarus &amp; the
@@ -691,8 +718,8 @@
     <!-- World Visa News Section -->
     <section class="py-16">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="md:hidden lg:block">
                     <img src="https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg" alt="World Visa News"
                         class="w-full rounded-lg shadow-lg">
                 </div>
@@ -723,41 +750,47 @@
             </div>
         </div>
     </section>
-    <section class="mt-2 mb-48">
+    <section class="mt-2 mb-24 md:mb-28 lg:mb-38">
         <div class="container mx-auto px-4">
 
-           <div id="brand-slider">
-    <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
-        <a href="#" class="block text-center">
-            <img src="https://easyinspire.eu/wp-content/uploads/2021/04/usa-uni.png" alt="Brand Name" class="max-h-24 p-2 mx-auto" />
-        </a>
-    </div>
-    <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
-        <a href="#" class="block text-center">
-            <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png" alt="Brand Name" class="max-h-24 p-2 mx-auto" />
-        </a>
-    </div>
-    <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
-        <a href="#" class="block text-center">
-            <img src="https://easyinspire.eu/wp-content/uploads/2021/04/chester-university-1.png" alt="Brand Name" class="max-h-24 p-2 mx-auto" />
-        </a>
-    </div>
-    <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
-        <a href="#" class="block text-center">
-            <img src="https://easyinspire.eu/wp-content/uploads/2021/04/yorkvelle-university-1.png" alt="Brand Name" class="max-h-24 p-2 mx-auto" />
-        </a>
-    </div>
-    <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
-        <a href="#" class="block text-center">
-            <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png" alt="Brand Name" class="max-h-24 p-2 mx-auto" />
-        </a>
-    </div>
-    <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
-        <a href="#" class="block text-center">
-            <img src="https://easyinspire.eu/wp-content/uploads/2021/04/chester-university-1.png" alt="Brand Name" class="max-h-24 p-2 mx-auto" />
-        </a>
-    </div>
-</div>
+            <div id="brand-slider">
+                <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
+                    <a href="#" class="block text-center">
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/usa-uni.png" alt="Brand Name"
+                            class="max-h-24 p-2 mx-auto" />
+                    </a>
+                </div>
+                <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
+                    <a href="#" class="block text-center">
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png" alt="Brand Name"
+                            class="max-h-24 p-2 mx-auto" />
+                    </a>
+                </div>
+                <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
+                    <a href="#" class="block text-center">
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/chester-university-1.png"
+                            alt="Brand Name" class="max-h-24 p-2 mx-auto" />
+                    </a>
+                </div>
+                <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
+                    <a href="#" class="block text-center">
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/yorkvelle-university-1.png"
+                            alt="Brand Name" class="max-h-24 p-2 mx-auto" />
+                    </a>
+                </div>
+                <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
+                    <a href="#" class="block text-center">
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png" alt="Brand Name"
+                            class="max-h-24 p-2 mx-auto" />
+                    </a>
+                </div>
+                <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
+                    <a href="#" class="block text-center">
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/chester-university-1.png"
+                            alt="Brand Name" class="max-h-24 p-2 mx-auto" />
+                    </a>
+                </div>
+            </div>
 
         </div>
     </section>
@@ -847,11 +880,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        document.getElementById("mobile-menu-button").addEventListener("click", function () {
-            var mobileMenu = document.getElementById("mobile-menu");
+        document.getElementById("mobile-menu-button").addEventListener("click", () => {
+            const mobileMenu = document.getElementById("mobile-menu");
             mobileMenu.classList.toggle("hidden");
-            mobileMenu.classList.toggle("open");
         });
+
 
     </script>
 
@@ -872,37 +905,37 @@
             });
         });
     </script>
-<script>
-    $('#brand-slider').slick({
+    <script>
+        $('#brand-slider').slick({
 
-  arrows: true,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  infinite: true,
-  autoplay:3000,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-      }
-    }
-  ]
-});
+            arrows: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            infinite: true,
+            autoplay: 3000,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 4,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }
+            ]
+        });
 
-</script>
+    </script>
 
 </body>
 
