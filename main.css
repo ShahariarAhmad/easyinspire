@@ -1,0 +1,529 @@
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .group:hover .group-hover\:block {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .group-hover\:block {
+            transition: all 0.3s ease-out;
+        }
+
+        #mobile-menu.open {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .float-btn {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 21px;
+            line-height: 50px;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .float-wa-1 {
+            bottom: 80px;
+            right: 20px;
+        }
+
+        .float-top {
+            bottom: 20px;
+            right: 20px;
+            background-color: orange;
+        }
+
+        .float-top:hover {
+            background-color: black;
+            transition: .3s;
+        }
+
+        .float-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.1);
+        }
+
+        /* Responsive adjustments for float buttons */
+        @media (max-width: 768px) {
+            .float-btn {
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                font-size: 18px;
+            }
+
+            .float-wa-1 {
+                bottom: 70px;
+                right: 15px;
+            }
+
+            .float-top {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* Hero slider responsive styles */
+        #hero-slick .slick-prev::before,
+        #hero-slick .slick-next::before {
+            font-size: 40px;
+        }
+
+        #hero-slick .slick-prev {
+            left: 2%;
+            z-index: 10;
+        }
+
+        #hero-slick .slick-next {
+            right: 2%;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+
+            #hero-slick .slick-prev,
+            #hero-slick .slick-next {
+                display: none !important;
+            }
+        }
+
+        /* Image hover effects */
+        .column {
+            margin: 15px 15px 0;
+            padding: 0;
+        }
+
+        .column:last-child {
+            padding-bottom: 60px;
+        }
+
+        .column::after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+        .column div {
+            position: relative;
+            float: left;
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        @media (min-width: 768px) {
+            .column div {
+                margin: 0 0 0 25px;
+            }
+
+            .column div:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .column div span {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            z-index: -1;
+            display: block;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            color: #444;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            transition: .3s ease-in-out;
+            opacity: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        figure:hover+span {
+            bottom: -36px;
+            opacity: 1;
+        }
+
+        /* Shine effect */
+        .hover14 figure {
+            position: relative;
+        }
+
+        .hover14 figure::before {
+            position: absolute;
+            top: 0;
+            left: -75%;
+            z-index: 2;
+            display: block;
+            content: '';
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+            transform: skewX(-25deg);
+        }
+
+        .hover14 figure:hover::before {
+            animation: shine .75s;
+        }
+
+        @keyframes shine {
+            100% {
+                left: 125%;
+            }
+        }
+
+        /* Responsive container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Hero section responsive */
+        .hero-slide {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-slide {
+                min-height: 500px;
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-slide {
+                min-height: 600px;
+                padding: 4rem 3rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .hero-slide {
+                min-height: 700px;
+                padding: 6rem 4rem;
+            }
+        }
+
+        /* Services section responsive fixes */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .services-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .services-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-image {
+                height: 400px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-image {
+                height: 500px;
+            }
+        }
+
+        .experience-card {
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 8px solid #2D5883;
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .experience-card {
+                bottom: -3rem;
+                /* left: 75%; */
+                width: 75%;
+            }
+        }
+
+        /* Contact CTA section responsive */
+        .contact-cta {
+            margin-top: 0;
+            padding-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-cta {
+                padding-top: 6rem;
+            }
+        }
+
+        /* Form responsive styles */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-form {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Brand slider responsive */
+        .brand-slider-container {
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .brand-slider-container {
+                margin-bottom: 6rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .brand-slider-container {
+                margin-bottom: 8rem;
+            }
+        }
+
+        /* Typography responsive */
+        .hero-title {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Navigation responsive improvements */
+        .nav-dropdown {
+            min-width: 150px;
+        }
+
+        @media (max-width: 767px) {
+            .nav-dropdown {
+                position: static;
+                display: block;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+   
+
+        /* From Uiverse.io by adamgiebl */
+        .cssbuttons-io {
+            position: relative;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 0.05em;
+
+            cursor: pointer;
+            border: none;
+            background: linear-gradient(to right, #162E40, #162E40);
+            color: ghostwhite;
+            overflow: hidden;
+        }
+
+
+        .cssbuttons-io span {
+            position: relative;
+            z-index: 10;
+            transition: color 0.4s;
+            display: inline-flex;
+            align-items: center;
+
+        }
+
+        .cssbuttons-io::before,
+        .cssbuttons-io::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .cssbuttons-io::before {
+            content: "";
+            background: #F97316;
+            width: 120%;
+            left: -10%;
+            transform: skew(30deg);
+            transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+        }
+
+        .cssbuttons-io:hover::before {
+            transform: translate3d(100%, 0, 0);
+        }
+
+        .cssbuttons-io:active {
+            transform: scale(0.95);
+        }
+
+        /* Custom slider styles */
+        #feedback-slider .slick-prev,
+        #feedback-slider .slick-next {
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            background: #F97316;
+            border-radius: 50%;
+        }
+
+        #feedback-slider .slick-prev:before,
+        #feedback-slider .slick-next:before {
+            font-size: 16px;
+            color: white;
+        }
+
+        #feedback-slider .slick-prev {
+            left: -50px;
+        }
+
+        #feedback-slider .slick-next {
+            right: -50px;
+        }
+
+        @media (max-width: 768px) {
+            #feedback-slider .slick-prev {
+                left: 10px;
+            }
+
+            #feedback-slider .slick-next {
+                right: 10px;
+            }
+        }
+
+        .feedback-card {
+            margin: 0 15px;
+        }

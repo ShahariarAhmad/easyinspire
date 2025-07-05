@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,445 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
 
-        .group:hover .group-hover\:block {
-            display: block;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .group-hover\:block {
-            transition: all 0.3s ease-out;
-        }
-
-        #mobile-menu.open {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .float-btn {
-            position: fixed;
-            width: 50px;
-            height: 50px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 21px;
-            line-height: 50px;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .float-wa-1 {
-            bottom: 80px;
-            right: 20px;
-        }
-
-        .float-top {
-            bottom: 20px;
-            right: 20px;
-            background-color: orange;
-        }
-
-        .float-top:hover {
-            background-color: black;
-            transition: .3s;
-        }
-
-        .float-btn:hover {
-            opacity: 0.9;
-            transform: scale(1.1);
-        }
-
-        /* Responsive adjustments for float buttons */
-        @media (max-width: 768px) {
-            .float-btn {
-                width: 45px;
-                height: 45px;
-                line-height: 45px;
-                font-size: 18px;
-            }
-            
-            .float-wa-1 {
-                bottom: 70px;
-                right: 15px;
-            }
-            
-            .float-top {
-                bottom: 15px;
-                right: 15px;
-            }
-        }
-
-        /* Hero slider responsive styles */
-        #hero-slick .slick-prev::before,
-        #hero-slick .slick-next::before {
-            font-size: 40px;
-        }
-
-        #hero-slick .slick-prev {
-            left: 2%;
-            z-index: 10;
-        }
-
-        #hero-slick .slick-next {
-            right: 2%;
-            z-index: 10;
-        }
-
-        @media (max-width: 768px) {
-            #hero-slick .slick-prev,
-            #hero-slick .slick-next {
-                display: none !important;
-            }
-        }
-
-        /* Image hover effects */
-        .column {
-            margin: 15px 15px 0;
-            padding: 0;
-        }
-
-        .column:last-child {
-            padding-bottom: 60px;
-        }
-
-        .column::after {
-            content: '';
-            clear: both;
-            display: block;
-        }
-
-        .column div {
-            position: relative;
-            float: left;
-            width: 100%;
-            max-width: 300px;
-            height: 200px;
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        @media (min-width: 768px) {
-            .column div {
-                margin: 0 0 0 25px;
-            }
-            
-            .column div:first-child {
-                margin-left: 0;
-            }
-        }
-
-        .column div span {
-            position: absolute;
-            bottom: -20px;
-            left: 0;
-            z-index: -1;
-            display: block;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            color: #444;
-            font-size: 18px;
-            text-decoration: none;
-            text-align: center;
-            transition: .3s ease-in-out;
-            opacity: 0;
-        }
-
-        figure {
-            margin: 0;
-            padding: 0;
-            background: #fff;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-        }
-
-        figure:hover+span {
-            bottom: -36px;
-            opacity: 1;
-        }
-
-        /* Shine effect */
-        .hover14 figure {
-            position: relative;
-        }
-
-        .hover14 figure::before {
-            position: absolute;
-            top: 0;
-            left: -75%;
-            z-index: 2;
-            display: block;
-            content: '';
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-            transform: skewX(-25deg);
-        }
-
-        .hover14 figure:hover::before {
-            animation: shine .75s;
-        }
-
-        @keyframes shine {
-            100% {
-                left: 125%;
-            }
-        }
-
-        /* Responsive container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        @media (min-width: 640px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 2rem;
-            }
-        }
-
-        /* Hero section responsive */
-        .hero-slide {
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            padding: 2rem 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .hero-slide {
-                min-height: 500px;
-                padding: 3rem 2rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-slide {
-                min-height: 600px;
-                padding: 4rem 3rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .hero-slide {
-                min-height: 700px;
-                padding: 6rem 4rem;
-            }
-        }
-
-        /* Services section responsive fixes */
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-            }
-        }
-
-        .services-image-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .services-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .services-image {
-                height: 400px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .services-image {
-                height: 500px;
-            }
-        }
-
-        .experience-card {
-            position: absolute;
-            bottom: -2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border: 8px solid #2D5883;
-            width: 90%;
-            max-width: 300px;
-            text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .experience-card {
-                bottom: -3rem;
-                left: 75%;
-                width: 75%;
-            }
-        }
-
-        /* Contact CTA section responsive */
-        .contact-cta {
-            margin-top: 0;
-            padding-top: 4rem;
-        }
-
-        @media (min-width: 768px) {
-            .contact-cta {
-                padding-top: 6rem;
-            }
-        }
-
-        /* Form responsive styles */
-        .contact-form {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .contact-form {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-            }
-        }
-
-        /* Brand slider responsive */
-        .brand-slider-container {
-            margin-top: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        @media (min-width: 768px) {
-            .brand-slider-container {
-                margin-bottom: 6rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .brand-slider-container {
-                margin-bottom: 8rem;
-            }
-        }
-
-        /* Typography responsive */
-        .hero-title {
-            font-size: 2rem;
-            line-height: 1.2;
-        }
-
-        @media (min-width: 640px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .hero-title {
-                font-size: 4rem;
-            }
-        }
-
-        .section-title {
-            font-size: 2rem;
-        }
-
-        @media (min-width: 640px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .section-title {
-                font-size: 3rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .section-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        /* Navigation responsive improvements */
-        .nav-dropdown {
-            min-width: 150px;
-        }
-
-        @media (max-width: 767px) {
-            .nav-dropdown {
-                position: static;
-                display: block;
-                background: transparent;
-                box-shadow: none;
-                padding: 0;
-            }
-        }
-    </style>
 
     <!-- Slick CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
@@ -457,6 +18,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Slick JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body class="bg-white font-['Open_Sans'] text-[15px]">
@@ -475,18 +38,23 @@
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="text-sm hover:text-orange-500 transition-colors duration-300 hidden sm:inline">Login</a>
+                    <a href="#"
+                        class="text-sm hover:text-orange-500 transition-colors duration-300 hidden sm:inline">Login</a>
                     <div class="flex space-x-2">
-                        <a href="#" class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
+                        <a href="#"
+                            class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
+                        <a href="#"
+                            class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
+                        <a href="#"
+                            class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
                             <i class="fa-brands fa-youtube"></i>
                         </a>
-                        <a href="#" class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
+                        <a href="#"
+                            class="text-white px-1 py-1 rounded text-sm hover:text-orange-500 transition-colors duration-300">
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
@@ -496,11 +64,12 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-12 z-40">
+    <nav class="bg-white shadow-md sticky top-11 z-40">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <img src="https://easyinspire.eu/wp-content/uploads/2023/02/logo2.jpg" alt="Easy Inspire MB Logo" class="h-8 sm:h-10 md:h-12">
+                    <img src="https://easyinspire.eu/wp-content/uploads/2023/02/logo2.jpg" alt="Easy Inspire MB Logo"
+                        class="h-8 sm:h-10 md:h-12">
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <div class="relative group z-50">
@@ -519,7 +88,21 @@
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Contact Sub 2</a>
                         </div>
                     </div>
-                    <a href="#" class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition-colors">Get Quote</a>
+                    <!-- <a href="#"
+                        class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition-colors">Get
+                        Quote</a> -->
+
+                    <button class="cssbuttons-io px-4 py-2 rounded-lg">
+                        <span>
+                            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z"
+                                    fill="currentColor"></path>
+                            </svg> -->
+                            Get Quote
+                        </span>
+                    </button>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-700">
@@ -528,7 +111,8 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md overflow-hidden transform transition-all duration-300">
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white shadow-md overflow-hidden transform transition-all duration-300">
             <a href="#" class="block px-4 py-3 hover:bg-[#F97316] hover:text-white">Home</a>
             <a href="#" class="block px-4 py-3 hover:bg-[#F97316] hover:text-white">About</a>
             <a href="#" class="block px-4 py-3 hover:bg-[#F97316] hover:text-white">Services</a>
@@ -542,7 +126,8 @@
         <div class="w-full">
             <div id="hero-slick">
                 <!-- Slide 1 -->
-                <div class="hero-slide" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/5659433/pexels-photo-5659433.jpeg'); background-size: cover; background-position: center;">
+                <div class="hero-slide"
+                    style="min-height: 700px;background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/5659433/pexels-photo-5659433.jpeg'); background-size: cover; background-position: center;">
                     <div class="container mx-auto">
                         <h1 class="hero-title font-bold mb-6">
                             Invitation Letters for Business, Family, and Visitor Visas
@@ -551,14 +136,16 @@
                             Professional visa invitation letter services to help you bring family, friends, and business
                             partners to your country with confidence.
                         </p>
-                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition duration-300 ease-in-out">
+                        <a href="#"
+                            class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition duration-300 ease-in-out">
                             Get Started
                         </a>
                     </div>
                 </div>
 
                 <!-- Slide 2 -->
-                <div class="hero-slide" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg'); background-size: cover; background-position: center;">
+                <div class="hero-slide"
+                    style="min-height: 700px;background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg'); background-size: cover; background-position: center;">
                     <div class="container mx-auto">
                         <h1 class="hero-title font-bold mb-6">
                             Fast & Reliable Immigration Support
@@ -567,14 +154,16 @@
                             Let us handle your visa process professionally and efficiently, with personalized support at
                             every step.
                         </p>
-                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition duration-300 ease-in-out">
+                        <a href="#"
+                            class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition duration-300 ease-in-out">
                             Contact Us
                         </a>
                     </div>
                 </div>
 
                 <!-- Slide 3 -->
-                <div class="hero-slide" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/16846525/pexels-photo-16846525.jpeg'); background-size: cover; background-position: center;">
+                <div class="hero-slide"
+                    style="min-height: 700px;background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/16846525/pexels-photo-16846525.jpeg'); background-size: cover; background-position: center;">
                     <div class="container mx-auto">
                         <h1 class="hero-title font-bold mb-6">
                             Trusted by Thousands Worldwide
@@ -583,9 +172,17 @@
                             Easy Inspire MB is your go-to partner for work, study, and visitor visa support across
                             borders.
                         </p>
-                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg text-lg font-semibold inline-block transition duration-300 ease-in-out">
+                         <button class="cssbuttons-io px-4 py-2 rounded-lg">
+                        <span>
+                            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z"
+                                    fill="currentColor"></path>
+                            </svg> -->
                             Learn More
-                        </a>
+                        </span>
+                    </button>
                     </div>
                 </div>
             </div>
@@ -598,14 +195,21 @@
             <div class="services-grid">
                 <div class="order-2 md:order-1">
                     <div class="services-image-container">
-                        <img src="https://easyinspire.eu/wp-content/uploads/2020/07/about-1.jpg"
-                            alt="Work, Visit & Study Visa" class="services-image shadow-lg">
-                        
-                        <div class="experience-card">
+                        <!-- <img src="https://easyinspire.eu/wp-content/uploads/2020/07/about-1.jpg"
+                            alt="Work, Visit & Study Visa" class="services-image shadow-lg"> -->
+                        <div class="hover14 column m-0 cursor-pointer ">
+                            <figure>
+                                <img src="https://easyinspire.eu/wp-content/uploads/2020/07/about-1.jpg"
+                                    alt="Study Visa" class="object-cover">
+                            </figure>
+                        </div>
+
+                        <div class="experience-card overflow-hidden">
                             <!-- Decorative icons -->
                             <i class="fa-solid fa-circle absolute top-0 -right-8 opacity-5 text-blue-500 text-6xl"></i>
-                            <i class="fa-solid fa-circle opacity-5 absolute bottom-8 -left-8 text-blue-500 text-8xl"></i>
-                            
+                            <i
+                                class="fa-solid fa-circle opacity-5 absolute bottom-8 -left-8 text-blue-500 text-8xl"></i>
+
                             <!-- Content -->
                             <div class="relative z-10">
                                 <p class="text-sm mb-2">Canada's Leading Visa & Immigration firm with</p>
@@ -615,11 +219,13 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="order-1 md:order-2">
-                    <p class="text-[#777777] text-[12px] uppercase font-semibold mb-4">We understand the people's needs</p>
+                    <p class="text-[#777777] text-[12px] uppercase font-semibold mb-4">We understand the people's needs
+                    </p>
                     <h1 class="section-title font-bold text-gray-800 mb-6">Work, Visit & Study Visa</h1>
-                    <p class="text-xl md:text-2xl text-[#555555] mb-6">We deal professionally with work permits, visit visas, and study permits.</p>
+                    <p class="text-xl md:text-2xl text-[#555555] mb-6">We deal professionally with work permits, visit
+                        visas, and study permits.</p>
                     <p class="text-gray-600 mb-8 leading-relaxed">
                         We facilitate the acquisition of work permits for various Schengen countries, including the
                         Czech Republic, Poland, Lithuania, UK, Croatia, Italy, Hungary, Slovakia & Bulgaria etc.
@@ -628,7 +234,8 @@
                         visit visa (E-visas) for Albania, Moldova, Georgia, Hong Kong & Turkey. For those aspiring to
                         study abroad, we have options available in Ireland and the UK & Germany.
                     </p>
-                    <a href="#" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 inline-block transition-colors">
+                    <a href="#"
+                        class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 inline-block transition-colors">
                         Learn More
                     </a>
                 </div>
@@ -651,7 +258,7 @@
                         <h3 class="text-xl md:text-2xl font-bold text-gray-800">Work Visa</h3>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="hover14 column m-0 cursor-pointer">
                         <figure>
@@ -663,7 +270,7 @@
                         <h3 class="text-xl md:text-2xl font-bold text-gray-800">Study Visa</h3>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="hover14 column m-0 cursor-pointer">
                         <figure>
@@ -690,7 +297,7 @@
     </section>
 
     <!-- Visa Invitation Letters Section -->
-    <section class="py-16">
+    <section class="pt-16 pb-48">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <div>
@@ -713,38 +320,50 @@
 
     <!-- Features Section -->
     <section class="py-16 bg-[#EFF2F5]">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 -mt-[150px]">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 <!-- Card 1: Express Visa -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between text-center">
+                <!-- <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between text-center 
+            transition-transform duration-300 ease-in-out transform origin-top hover:scale-y-110">
+                    <i class="fa-brands fa-uncharted text-[#162E40] mx-auto mb-4" style="font-size: 90px;"></i>
+                    <p><small class="text-gray-400 text-[14px] uppercase">Visa Service</small></p>
+                    <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Express Visa</h3>
+                    <p class="text-sm text-gray-600">Fast-tracked processing for emergency travel</p>
+                </div> -->
+
+
+                <div class="bg-white p-6 flex flex-col justify-between text-center 
+            transition-all duration-300 ease-in-out transform origin-top hover:scale-y-110 
+            border-b-4 border-[#82B2ED] hover:border-orange-500 cursor-pointer hover:shadow-xl">
                     <i class="fa-brands fa-uncharted text-[#162E40] mx-auto mb-4" style="font-size: 90px;"></i>
                     <p><small class="text-gray-400 text-[14px] uppercase">Visa Service</small></p>
                     <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Express Visa</h3>
                     <p class="text-sm text-gray-600">Fast-tracked processing for emergency travel</p>
                 </div>
 
-                <!-- Card 2: Secure Processing -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between text-center">
+                <div class="bg-white p-6 flex flex-col justify-between text-center 
+            transition-all duration-300 ease-in-out transform origin-top hover:scale-y-110 
+            border-b-4 border-[#82B2ED] hover:border-orange-500 cursor-pointer hover:shadow-lg">
                     <i class="fa-brands fa-uncharted text-[#162E40] mx-auto mb-4" style="font-size: 90px;"></i>
                     <p><small class="text-gray-400 text-[14px] uppercase">Visa Service</small></p>
-                    <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Secure</h3>
-                    <p class="text-sm text-gray-600">We ensure all your data is handled with top‑level security</p>
+                    <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Express Visa</h3>
+                    <p class="text-sm text-gray-600">Fast-tracked processing for emergency travel</p>
                 </div>
-
-                <!-- Card 3: Customer Support -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between text-center">
+                <div class="bg-white p-6 flex flex-col justify-between text-center 
+            transition-all duration-300 ease-in-out transform origin-top hover:scale-y-110 
+            border-b-4 border-[#82B2ED] hover:border-orange-500 cursor-pointer hover:shadow-lg">
                     <i class="fa-brands fa-uncharted text-[#162E40] mx-auto mb-4" style="font-size: 90px;"></i>
                     <p><small class="text-gray-400 text-[14px] uppercase">Visa Service</small></p>
-                    <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Support</h3>
-                    <p class="text-sm text-gray-600">Round‑the‑clock guidance from your personal visa assistant</p>
+                    <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Express Visa</h3>
+                    <p class="text-sm text-gray-600">Fast-tracked processing for emergency travel</p>
                 </div>
-
-                <!-- Card 4: Global Access -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between text-center">
+                <div class="bg-white p-6 flex flex-col justify-between text-center 
+            transition-all duration-300 ease-in-out transform origin-top hover:scale-y-110 
+            border-b-4 border-[#82B2ED] hover:border-orange-500 cursor-pointer hover:shadow-lg">
                     <i class="fa-brands fa-uncharted text-[#162E40] mx-auto mb-4" style="font-size: 90px;"></i>
                     <p><small class="text-gray-400 text-[14px] uppercase">Visa Service</small></p>
-                    <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Global</h3>
-                    <p class="text-sm text-gray-600">Access consulates worldwide with our networks</p>
+                    <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-2">Express Visa</h3>
+                    <p class="text-sm text-gray-600">Fast-tracked processing for emergency travel</p>
                 </div>
             </div>
 
@@ -754,8 +373,9 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Company Registration</h2>
                 </div>
                 <div class="aspect-video max-w-4xl mx-auto">
-                    <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/HyxPjGoSQ7Y?si=YY9AHHV-HzRdHLf1"
-                        title="YouTube video player" frameborder="0"
+                    <iframe class="w-full h-full rounded-lg"
+                        src="https://www.youtube.com/embed/HyxPjGoSQ7Y?si=YY9AHHV-HzRdHLf1" title="YouTube video player"
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                 </div>
@@ -772,7 +392,7 @@
                     Top Destination for Study Abroad Following Countries
                 </h2>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
                     <img src="https://easyinspire.eu/wp-content/uploads/2020/07/feature-1.jpg" alt="Study Destination 1"
@@ -801,11 +421,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center py-16">
                 <h3 class="text-lg md:text-xl lg:text-2xl">
-                    FIND YOUR PROGRAMS & SCHOOL 
-                    <a href="https://www.applyboard.com/partners/1505191/intake-form" target="_blank" rel="nofollow" class="text-orange-500 underline hover:text-orange-600">
+                    FIND YOUR PROGRAMS & SCHOOL
+                    <a href="https://www.applyboard.com/partners/1505191/intake-form" target="_blank" rel="nofollow"
+                        class="text-orange-500 underline hover:text-orange-600">
                         PLEASE FILL THE ASSESSMENT FORM & SUBMIT
                     </a>
                     <i class="fa-solid fa-arrow-right mx-2"></i>
@@ -815,6 +436,7 @@
     </section>
 
     <!-- Testimonials Section -->
+    <!-- Testimonials/Feedback Section with Slider -->
     <section class="py-16">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -823,47 +445,165 @@
                     What Customers Saying About Easy Inspire MB.
                 </h2>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>JD</text></svg>"
-                            alt="Customer" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">John Doe</h4>
-                            <p class="text-gray-600 text-sm">Business Owner</p>
+
+            <div id="feedback-slider">
+                <!-- Feedback Card 1 -->
+                <div class="feedback-card">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <div class="flex items-center mb-6">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>JD</text></svg>"
+                                alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800">John Doe</h4>
+                                <p class="text-gray-600 text-sm">Business Owner</p>
+                            </div>
                         </div>
-                    </div>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        "Easy Inspire MB provided excellent service for my business visa invitation letter. The process was smooth and professional, and I received my documents quickly. Highly recommended for anyone needing visa services."
-                    </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            "Easy Inspire MB provided excellent service for my business visa invitation letter. The
+                            process
+                            was smooth and professional, and I received my documents quickly. Highly recommended for
+                            anyone
+                            needing visa services."
+                        </p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>SM</text></svg>"
-                            alt="Customer" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">Sarah Miller</h4>
-                            <p class="text-gray-600 text-sm">Student</p>
+
+                <!-- Feedback Card 2 -->
+                <div class="feedback-card">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <div class="flex items-center mb-6">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>SM</text></svg>"
+                                alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800">Sarah Miller</h4>
+                                <p class="text-gray-600 text-sm">Student</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            "I needed a visitor visa invitation letter for my parents, and Easy Inspire MB made the
+                            entire
+                            process effortless. Their team was knowledgeable and responsive throughout. My parents' visa
+                            was
+                            approved without any issues."
+                        </p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        "I needed a visitor visa invitation letter for my parents, and Easy Inspire MB made the entire process effortless. Their team was knowledgeable and responsive throughout. My parents' visa was approved without any issues."
-                    </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                </div>
+
+                <!-- Feedback Card 3 -->
+                <div class="feedback-card">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <div class="flex items-center mb-6">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>MJ</text></svg>"
+                                alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800">Michael Johnson</h4>
+                                <p class="text-gray-600 text-sm">Entrepreneur</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            "Outstanding service! They helped me with company registration and visa documentation. The
+                            team was professional, efficient, and delivered exactly what they promised. Will definitely
+                            use their services again."
+                        </p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 4 -->
+                <div class="feedback-card">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <div class="flex items-center mb-6">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>LW</text></svg>"
+                                alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800">Lisa Wang</h4>
+                                <p class="text-gray-600 text-sm">International Student</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            "Easy Inspire MB made my study visa process incredibly smooth. They guided me through every
+                            step and ensured all my documents were perfect. Thanks to them, I'm now studying in my dream
+                            university!"
+                        </p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 5 -->
+                <div class="feedback-card">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <div class="flex items-center mb-6">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>RB</text></svg>"
+                                alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800">Robert Brown</h4>
+                                <p class="text-gray-600 text-sm">IT Professional</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            "Fantastic experience with Easy Inspire MB! They handled my work permit application with
+                            great attention to detail. The communication was excellent throughout the process, and I got
+                            my permit faster than expected."
+                        </p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 6 -->
+                <div class="feedback-card">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <div class="flex items-center mb-6">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle fill='%23e5e7eb' cx='30' cy='30' r='30'/><text x='30' y='35' text-anchor='middle' fill='%236b7280' font-size='20'>AG</text></svg>"
+                                alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800">Anna Garcia</h4>
+                                <p class="text-gray-600 text-sm">Travel Blogger</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            "As someone who travels frequently for work, I've used Easy Inspire MB multiple times for
+                            different visa requirements. They consistently deliver high-quality service and make the
+                            complex visa process simple and stress-free."
+                        </p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -899,17 +639,23 @@
                             <textarea placeholder="Your Message" rows="4"
                                 class="w-full px-4 py-3 rounded bg-[#476C92] text-white placeholder-gray-300 focus:border-orange-500 focus:outline-none"></textarea>
                         </div>
-                        <button type="submit"
-                            class="px-6 py-3 rounded bg-[#F97316] hover:bg-[#162E40] text-white transition-colors focus:outline-none">
-                            <i class="fa-solid fa-arrow-right mx-2"></i> <strong>Send Message</strong>
+
+                        <button class="cssbuttons-io px-4 py-2 rounded-lg mt-6">
+
+                            <span>
+
+                                <i class="fa-solid fa-arrow-right mx-2"></i>
+                                Send Message
+                            </span>
                         </button>
                     </form>
                 </div>
-                
+
                 <div>
                     <div class="mt-8">
                         <h4 class="mb-4 text-2xl md:text-3xl">Customer Rating</h4>
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <div
+                            class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
                             <div class="text-4xl md:text-5xl lg:text-6xl font-bold">4.9/5.0</div>
                             <div>
                                 <div class="flex text-yellow-400 mb-2">
@@ -923,7 +669,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="space-y-6 mt-12">
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-phone text-white text-3xl md:text-4xl"></i>
@@ -954,9 +700,10 @@
                     Company Formation in the World
                 </h2>
                 <p class="text-gray-600 mb-8 leading-relaxed max-w-4xl">
-                    We provide comprehensive company formation services worldwide, helping entrepreneurs and businesses establish their presence in various jurisdictions with favorable business environments.
+                    We provide comprehensive company formation services worldwide, helping entrepreneurs and businesses
+                    establish their presence in various jurisdictions with favorable business environments.
                 </p>
-                
+
                 <div class="space-y-8">
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0">
@@ -981,7 +728,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0">
                             <i class="fas fa-handshake text-2xl md:text-3xl bg-white p-4 rounded"></i>
@@ -1011,12 +758,15 @@
                         World Visa News & Updates
                     </h2>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        Stay informed about the latest visa regulations, policy changes, and immigration updates from around the world. Our team monitors global visa requirements to keep you updated on important changes that may affect your travel or immigration plans.
+                        Stay informed about the latest visa regulations, policy changes, and immigration updates from
+                        around the world. Our team monitors global visa requirements to keep you updated on important
+                        changes that may affect your travel or immigration plans.
                     </p>
                     <div class="space-y-4">
                         <div class="border-l-4 border-orange-500 pl-4">
                             <h4 class="font-semibold text-gray-800 mb-1">Latest Immigration Policy Updates</h4>
-                            <p class="text-gray-600 text-sm">Recent changes in visa processing times and requirements</p>
+                            <p class="text-gray-600 text-sm">Recent changes in visa processing times and requirements
+                            </p>
                         </div>
                         <div class="border-l-4 border-orange-500 pl-4">
                             <h4 class="font-semibold text-gray-800 mb-1">Travel Restrictions & Guidelines</h4>
@@ -1027,9 +777,18 @@
                             <p class="text-gray-600 text-sm">Emerging visa types and application procedures</p>
                         </div>
                     </div>
-                    <a href="#" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 inline-block mt-6 transition-colors">
-                        Read More
-                    </a>
+                    <button class="cssbuttons-io px-4 py-2 rounded-lg mt-6">
+
+                        <span>
+                            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z"
+                                    fill="currentColor"></path>
+                            </svg> -->
+                            Read More
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1047,8 +806,8 @@
                 </div>
                 <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
                     <a href="#" class="block text-center">
-                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png" alt="Australia Universities"
-                            class="max-h-24 p-2 mx-auto" />
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png"
+                            alt="Australia Universities" class="max-h-24 p-2 mx-auto" />
                     </a>
                 </div>
                 <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
@@ -1065,8 +824,8 @@
                 </div>
                 <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
                     <a href="#" class="block text-center">
-                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png" alt="Australia Universities"
-                            class="max-h-24 p-2 mx-auto" />
+                        <img src="https://easyinspire.eu/wp-content/uploads/2021/04/australia-uni.png"
+                            alt="Australia Universities" class="max-h-24 p-2 mx-auto" />
                     </a>
                 </div>
                 <div class="hover:shadow-lg transition transform hover:scale-105 p-4 flex flex-col items-center">
@@ -1104,7 +863,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="text-xl md:text-2xl font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 font-bold">
@@ -1126,7 +885,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-xl md:text-2xl font-semibold mb-4">Company</h4>
                     <ul class="space-y-2 font-bold">
@@ -1148,7 +907,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-xl md:text-2xl font-semibold mb-4">Business Hours</h4>
                     <ul class="space-y-2 font-bold">
@@ -1156,19 +915,21 @@
                         <li>Saturday: 10:00 AM - 4:00 PM</li>
                         <li>Sunday: Closed</li>
                         <li class="mt-4">
-                            <input type="search" placeholder="E-mail Address" 
+                            <input type="search" placeholder="E-mail Address"
                                 class="p-3 w-full bg-[#2A3C4E] text-white placeholder-gray-400 rounded">
                         </li>
                         <li class="mt-4">
-                            <button type="submit" class="w-full sm:w-auto float-right p-3 bg-[#EC4E4F] hover:bg-[#d63031] transition-colors rounded">
+                            <button type="submit"
+                                class="w-full sm:w-auto float-right p-3 bg-[#EC4E4F] hover:bg-[#d63031] transition-colors rounded">
                                 <i class="fa-solid fa-arrow-right mx-2"></i>
                             </button>
                         </li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+
+            <div
+                class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <p>&copy; 2025 Easy Inspire MB. All rights reserved.</p>
                 <p class="mt-2 md:mt-0">Privacy Policy | Terms of Service</p>
             </div>
@@ -1186,72 +947,7 @@
         <i class="fa-solid fa-arrow-up"></i>
     </a>
 
-    <script>
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        document.getElementById("mobile-menu-button").addEventListener("click", () => {
-            const mobileMenu = document.getElementById("mobile-menu");
-            mobileMenu.classList.toggle("hidden");
-        });
-
-        $(document).ready(function () {
-            // Hero slider
-            $('#hero-slick').slick({
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                dots: true,
-                speed: 800,
-                fade: false,
-                cssEase: 'ease-in-out',
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            dots: true
-                        }
-                    }
-                ]
-            });
-
-            // Brand slider
-            $('#brand-slider').slick({
-                arrows: true,
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 4,
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 2,
-                            arrows: false
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
-
