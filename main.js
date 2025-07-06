@@ -51,14 +51,14 @@ $(document).ready(function () {
         arrows: true,
         dots: false,
         speed: 800,
-        fade: false,
+        fade: true,
         cssEase: 'ease-in-out',
         responsive: [
             {
                 breakpoint: 768,
                 settings: {
                     arrows: false,
-                    dots: true
+                    dots: false
                 }
             }
         ]
